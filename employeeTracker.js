@@ -64,6 +64,7 @@ function start() {
         });
 }
 
+// Function to view all employees
 function viewEmployees() {
     connection.query("SELECT * FROM employee", function (err, results) {
         if (err) throw err;
@@ -73,6 +74,7 @@ function viewEmployees() {
     });
 }
 
+// Function to view employees by department
 function employeesByDepartment() {
     inquirer
         .prompt({
@@ -96,6 +98,7 @@ function employeesByDepartment() {
         });
 }
 
+// Function to view employees by manager
 function employeesByManager() {
     inquirer
         .prompt({
@@ -119,6 +122,7 @@ function employeesByManager() {
         });
 }
 
+// Function to add a new employee
 function addEmployee() {
     inquirer
         .prompt([{
@@ -163,6 +167,7 @@ function addEmployee() {
         });
 }
 
+// Function to remove an existing employee
 function removeEmployee() {
     connection.query("DELETE * FROM employee", function (err, results) {
         if (err) throw err;
@@ -186,10 +191,12 @@ function updateRole() {
 
 }
 
+
 function updateManager() {
 
 }
 
+// Function to view all roles
 function viewRoles() {
     connection.query("SELECT * FROM role", function (err, results) {
         if (err) throw err;
@@ -199,6 +206,7 @@ function viewRoles() {
     });
 }
 
+// Function to add a new role
 function addRole() {
     inquirer
         .prompt([{
@@ -237,6 +245,7 @@ function addRole() {
         });
 }
 
+// Function to remove an existing role
 function removeRole() {
     connection.query("DELETE * FROM role", function (err, results) {
         if (err) throw err;
@@ -256,6 +265,7 @@ function removeRole() {
     })
 }
 
+// Function to view all departments
 function viewDepartments() {
     connection.query("SELECT * FROM department", function (err, results) {
         if (err) throw err;
@@ -265,6 +275,7 @@ function viewDepartments() {
     });
 }
 
+// Function to add a new department
 function addDepartment() {
     inquirer
         .prompt([{
@@ -291,6 +302,7 @@ function addDepartment() {
         });
 }
 
+// Function to remove an existing department
 function removeDepartment() {
     connection.query("DELETE * FROM department", function (err, results) {
         if (err) throw err;
