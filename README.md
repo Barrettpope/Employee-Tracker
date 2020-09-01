@@ -16,6 +16,7 @@ Note-Taker is a user-friendly application that can be used to write, save, and d
 This application requires the following node packages:
 * MySQL
 * Inquirer
+* Console.Table
 
 To install, run "npm install" in your Command Line System.
 
