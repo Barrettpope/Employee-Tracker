@@ -23,7 +23,7 @@ connection.connect(function (err) {
     start();
 });
 
-// Function which prompts the user foor what action they should take
+// Function which prompts the user for what action they should take
 function start() {
     inquirer.prompt({
             name: "userChoice",
@@ -102,16 +102,16 @@ function employeesByManager() {
             name: "employeeManager",
             type: "list",
             message: "Select Manager ID",
-            choices: ["Accounting", "Marketing", "Engineering", "Operations"]
+            choices: ["1", "2", "3", "4"]
         })
         .then(function (answer) {
-            if (answer.employeeDepartment === "Accounting") {
+            if (answer.employeeDepartment === "1") {
 
-            } else if (answer.employeeDepartment === "Marketing") {
+            } else if (answer.employeeDepartment === "2") {
 
-            } else if (answer.employeeDepartment === "Engineering") {
+            } else if (answer.employeeDepartment === "3") {
 
-            } else if (answer.employeeDepartment === "Operations") {
+            } else if (answer.employeeDepartment === "4") {
 
             } else {
                 connection.end();
@@ -129,12 +129,12 @@ function addEmployee() {
             {
                 name: "firstName",
                 type: "input",
-                message: "Enter Employee's First Name"
+                message: "Enter First Name"
             },
             {
                 name: "lastName",
                 type: "input",
-                message: "Enter Employee's Last Name"
+                message: "Enter Last Name"
             },
             {
                 name: "role",
@@ -149,17 +149,22 @@ function addEmployee() {
         ])
         .then(function (answer) {
             connection.query("INSERT INTO employee SET", {
-                id: answer.id,
-                first_name: answer.firstName,
-                last_name: answer.lastName,
-                role_id: answer.role,
-                manager_id: answer.manager
-            })
-        })
+                    id: answer.id,
+                    first_name: answer.firstName,
+                    last_name: answer.lastName,
+                    role_id: answer.role,
+                    manager_id: answer.manager
+                },
+                function (err) {
+                    if (err) throw err;
+                    start();
+                }
+            );
+        });
 }
 
 function removeEmployee() {
-    connection.query("SELECT * FROM employee", function (err, results) {
+    connection.query("DELETE * FROM employee", function (err, results) {
         if (err) throw err;
 
         inquirer
@@ -195,11 +200,60 @@ function viewRoles() {
 }
 
 function addRole() {
-
+    inquirer
+        .prompt([{
+                name: "id",
+                type: "input",
+                message: "Enter Role ID"
+            },
+            {
+                name: "title",
+                type: "input",
+                message: "Enter Title"
+            },
+            {
+                name: "salary",
+                type: "input",
+                message: "Enter Salary"
+            },
+            {
+                name: "departmentID",
+                type: "input",
+                message: "Enter Department ID"
+            },
+        ])
+        .then(function (answer) {
+            connection.query("INSERT INTO role SET", {
+                    id: answer.id,
+                    title: answer.title,
+                    salary: answer.salary,
+                    department_id: answer.departmentID,
+                },
+                function (err) {
+                    if (err) throw err;
+                    start();
+                }
+            );
+        });
 }
 
 function removeRole() {
+    connection.query("DELETE * FROM role", function (err, results) {
+        if (err) throw err;
 
+        inquirer
+            .prompt({
+                name: "role",
+                type: "rawlist",
+                choices: function () {
+                    let choiceArray = [];
+                    for (let i = 0; i < results.length; i++) {
+
+                    }
+                },
+                message: "Which Role Would You Like To Remove?"
+            })
+    })
 }
 
 function viewDepartments() {
@@ -212,9 +266,46 @@ function viewDepartments() {
 }
 
 function addDepartment() {
-
+    inquirer
+        .prompt([{
+                name: "id",
+                type: "input",
+                message: "Enter Department ID"
+            },
+            {
+                name: "name",
+                type: "input",
+                message: "Enter Department Name"
+            }
+        ])
+        .then(function (answer) {
+            connection.query("INSERT INTO department SET", {
+                    id: answer.id,
+                    name: answer.name,
+                },
+                function (err) {
+                    if (err) throw err;
+                    start();
+                }
+            );
+        });
 }
 
 function removeDepartment() {
+    connection.query("DELETE * FROM department", function (err, results) {
+        if (err) throw err;
 
+        inquirer
+            .prompt({
+                name: "department",
+                type: "rawlist",
+                choices: function () {
+                    let choiceArray = [];
+                    for (let i = 0; i < results.length; i++) {
+
+                    }
+                },
+                message: "Which Department Would You Like To Remove?"
+            })
+    })
 }
