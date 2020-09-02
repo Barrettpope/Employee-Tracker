@@ -1,8 +1,8 @@
 const mysql = require("mysql");
 const inquirer = require("inquirer");
-const cTable = require("console.table")
+// const cTable = require("console.table")
 
-// create the connection information for the sql database
+// creates the connection information for the sql database
 const connection = mysql.createConnection({
     host: "localhost",
 
@@ -17,10 +17,10 @@ const connection = mysql.createConnection({
     database: "employee_tracker"
 });
 
-// connect to the mysql server and sql database
+// connects to the mysql server and sql database
 connection.connect(function (err) {
     if (err) throw err;
-    // run the start function after the connection is made to prompt the user
+    // runs the start function after the connection is made to prompt the user
     start();
 });
 
@@ -70,7 +70,8 @@ function viewEmployees() {
     connection.query("SELECT * FROM employee", function (err, results) {
         if (err) throw err;
         else {
-            return results;
+            console.table(results);
+            start();
         };
     });
 }
@@ -322,3 +323,8 @@ function removeDepartment() {
             })
     })
 }
+
+// Console.table -- get it working
+// SQL Joins -- where & when to use?
+// Remove, update and view by department & by manager functions need to be finalized
+// Ensure all functions are correct and working properly

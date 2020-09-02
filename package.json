@@ -1,0 +1,23 @@
+{
+  "name": "employee-tracker",
+  "version": "1.0.0",
+  "description": "## Table of Contents * [Description](#description) * [Installation](#installation) * [License](#license) * [Visuals](#visuals) * [Demonstration](#demonstration) * [Contributing](#contributing) * [Support](#support)",
+  "main": "employeeTracker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Barrettpope/Employee-Tracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Barrettpope/Employee-Tracker/issues"
+  },
+  "homepage": "https://github.com/Barrettpope/Employee-Tracker#readme",
+  "dependencies": {
+    "inquirer": "^6.2.1",
+    "mysql": "^2.16.0"
+  }
+}
