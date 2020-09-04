@@ -66,6 +66,7 @@ function start() {
         });
 }
 
+// Function to prompt user whether they would like to continue or exit application 
 function continueOrEnd() {
     inquirer.prompt({
             name: "userChoice",
@@ -163,6 +164,7 @@ function removeEmployee() {
     })
 }
 
+// Function to update an existing employee
 function updateEmployee() {
     connection.query("SELECT concat(id,' ',first_name,' ',last_name) as fullName FROM employee", function (err, results) {
         if (err) throw err;
@@ -414,6 +416,7 @@ function removeDepartment() {
     })
 }
 
+// Function to update an existing department
 function updateDepartment() {
     connection.query("SELECT name FROM department", function (err, results) {
         if (err) throw err;
@@ -461,8 +464,3 @@ function updateDepartment() {
             })
     })
 }
-
-
-
-// Remove, update and view by department & by manager functions need to be finalized
-// Ensure all functions are correct and working properly
