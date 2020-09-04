@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/Barrettpope/Employee-Tracker#readme",
   "dependencies": {
-    "inquirer": "^6.2.1",
-    "mysql": "^2.16.0"
+    "boxen": "^4.2.0",
+    "inquirer": "^7.3.2",
+    "mysql": "^2.18.1"
   }
 }

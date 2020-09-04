@@ -3,6 +3,7 @@
 ## Table of Contents
 * [Description](#description)
 * [Installation](#installation)
+* [Usage](#usage)
 * [License](#license)
 * [Visuals](#visuals)
 * [Demonstration](#demonstration)
@@ -10,21 +11,25 @@
 * [Support](#support)
 
 ## Description
-Note-Taker is a user-friendly application that can be used to write, save, and delete notes. 
+Employee-Tracker is a command line application that keeps track of a company's employees using node, inquirer and MySQL.
 
 ## Installation
 This application requires the following node packages:
 * MySQL
 * Inquirer
-* Console.Table
+* Boxen
 
 To install, run "npm install" in your Command Line System.
 
-## License
+## Usage
+To use this application, you must first run the MySQL data in either your Command Line System or by using MySQLWorkbench. Then, enter "employeeTracker.js" in your CLS and navigate through the prompts accordingly.
 
+## License
+[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 
 ## Visuals
-
+![](Assets/app1.png)
+![](Assets/app2.png)
 
 ## Demonstration
 
